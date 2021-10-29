@@ -30,6 +30,7 @@ public class PROPUESTO extends javax.swing.JFrame {
 
     public PROPUESTO() {
         initComponents();
+        num=0;
     }
 
     void Encabezado() {
@@ -45,6 +46,7 @@ public class PROPUESTO extends javax.swing.JFrame {
         String cod, nombre, tcontrato;
         double sueldo, tardanza, movilidad;
         Nodo aux = ini;
+        num = 0;
         //colocando el encabezado
         Encabezado();
         //RECORRIENDO LA LISTA
@@ -62,7 +64,7 @@ public class PROPUESTO extends javax.swing.JFrame {
                 numera = " " + numera;
             }
             for (int i = cod.length(); i < 12; i++) {
-                cod = cod + " ";
+                cod = cod+" " ;
             }
             for (int i = nombre.length(); i < 20; i++) {
                 nombre = nombre + " ";
@@ -72,7 +74,7 @@ public class PROPUESTO extends javax.swing.JFrame {
             }
             DecimalFormat df2 = new DecimalFormat("####.00");
 
-            txtLista.append(numera + " " + cod + nombre + tcontrato + " " + sueldo + " " + tardanza + " " + movilidad + "\n");
+            txtLista.append(numera  + " " + cod + nombre + tcontrato + " " + sueldo + " " + tardanza + " " + movilidad + "\n");
             aux = aux.sig;
         }
     }
@@ -192,7 +194,7 @@ public class PROPUESTO extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BTNGUARDAD)
@@ -219,15 +221,15 @@ public class PROPUESTO extends javax.swing.JFrame {
                                 .addComponent(txttardanza, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtmontoM, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtcontador, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtempleado, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtmontoM, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtempleado, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -313,38 +315,8 @@ public class PROPUESTO extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNACTUALIZARActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int contador = 0;
-        int mayor = 0;
-        int mayor1 = 0;
-        double montoM = 0;
-        String nombret = null;
-        pfound = ini;
 
-        while (pfound != null) {
-            if (pfound.tardanza > 15) {
-                contador++;
-                pfound = pfound.sig;
-            } else {
-                pfound = pfound.sig;
-            }
-            if (pfound.tardanza > mayor && pfound.tcontrato.equalsIgnoreCase("SERVICE")) {
-                nombret = pfound.nombre;
-                pfound = pfound.sig;
-            } else {
-                pfound = pfound.sig;
-            }
-            if (pfound.movilidad > mayor1 && pfound.tcontrato.equalsIgnoreCase("PLAZO FIJO") && pfound.sueldo > 1500) {
-                montoM = pfound.movilidad;
-                pfound = pfound.sig;
-
-            } else {
-                pfound = pfound.sig;
-            }
-
-        }
-        txtcontador.setText(String.valueOf(contador));
-        txtempleado.setText(nombret);
-        txtmontoM.setText(String.valueOf(montoM));
+      
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
