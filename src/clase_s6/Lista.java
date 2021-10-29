@@ -74,6 +74,7 @@ public class Lista extends javax.swing.JFrame {
             } else if (elemento == inicio.dato) { // si el elemento buscado esta en el primer nodo, el inicio sera el sgt ndo
                 inicio = inicio.siguiente;
             } else {
+                
                 Nodo anterior, temporal;
                 anterior = inicio;
                 temporal = inicio.siguiente;
